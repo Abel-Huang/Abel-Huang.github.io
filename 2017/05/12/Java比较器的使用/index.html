@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://abelib.cn">
-  <title>Java比较器的使用 | Abel Huang的博客</title>
+  <title>Abel Huang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在编程中我们常常需要对对象进行排序，而排序又必须根据对象的实际类型进行比较。Java中提供了两个比较器接口用于对象之间的比较，分别是java.lang包中的Comparable接口和java.util包中Comparator接口。下面分别对这两种使用方法进行简单介绍。第一种java.lang.Comparable接口，只需要实现compareTo()一个方法就可以实现比较功能，并且调用系统排序函数">
+  <meta name="description" content="title: Java比较器的使用date: 2017-05-12 01:00:01 tags:在编程中我们常常需要对对象进行排序，而排序又必须根据对象的实际类型进行比较。Java中提供了两个比较器接口用于对象之间的比较，分别是java.lang包中的Comparable接口和java.util包中Comparator接口。下面分别对这两种使用方法进行简单介绍。第一种java.lang.Comp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java比较器的使用">
+<meta property="og:title" content="Abel Huang的博客">
 <meta property="og:url" content="http://abelib.cn/2017/05/12/Java比较器的使用/index.html">
 <meta property="og:site_name" content="Abel Huang的博客">
-<meta property="og:description" content="在编程中我们常常需要对对象进行排序，而排序又必须根据对象的实际类型进行比较。Java中提供了两个比较器接口用于对象之间的比较，分别是java.lang包中的Comparable接口和java.util包中Comparator接口。下面分别对这两种使用方法进行简单介绍。第一种java.lang.Comparable接口，只需要实现compareTo()一个方法就可以实现比较功能，并且调用系统排序函数">
-<meta property="og:updated_time" content="2017-05-11T17:01:24.494Z">
+<meta property="og:description" content="title: Java比较器的使用date: 2017-05-12 01:00:01 tags:在编程中我们常常需要对对象进行排序，而排序又必须根据对象的实际类型进行比较。Java中提供了两个比较器接口用于对象之间的比较，分别是java.lang包中的Comparable接口和java.util包中Comparator接口。下面分别对这两种使用方法进行简单介绍。第一种java.lang.Comp">
+<meta property="og:updated_time" content="2017-05-11T18:17:50.982Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java比较器的使用">
-<meta name="twitter:description" content="在编程中我们常常需要对对象进行排序，而排序又必须根据对象的实际类型进行比较。Java中提供了两个比较器接口用于对象之间的比较，分别是java.lang包中的Comparable接口和java.util包中Comparator接口。下面分别对这两种使用方法进行简单介绍。第一种java.lang.Comparable接口，只需要实现compareTo()一个方法就可以实现比较功能，并且调用系统排序函数">
+<meta name="twitter:title" content="Abel Huang的博客">
+<meta name="twitter:description" content="title: Java比较器的使用date: 2017-05-12 01:00:01 tags:在编程中我们常常需要对对象进行排序，而排序又必须根据对象的实际类型进行比较。Java中提供了两个比较器接口用于对象之间的比较，分别是java.lang包中的Comparable接口和java.util包中Comparator接口。下面分别对这两种使用方法进行简单介绍。第一种java.lang.Comp">
   
     <link rel="alternative" href="/atom.xml" title="Abel Huang的博客" type="application/atom+xml">
   
@@ -142,24 +142,11 @@
             <article id="post-Java比较器的使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Java比较器的使用
-    </h1>
-  
-
-        
-        <a href="/2017/05/12/Java比较器的使用/" class="archive-article-date">
-  	<time datetime="2017-05-11T17:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-12</time>
-</a>
-        
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在编程中我们常常需要对对象进行排序，而排序又必须根据对象的实际类型进行比较。Java中提供了两个比较器接口用于对象之间的比较，分别是java.lang包中的Comparable接口和java.util包中Comparator接口。下面分别对这两种使用方法进行简单介绍。<br>第一种java.lang.Comparable接口，只需要实现compareTo()一个方法就可以实现比较功能，并且调用系统排序函数查看效果。代码如下：</p>
+        <hr>
+<p>title: Java比较器的使用<br>date: 2017-05-12 01:00:01</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>在编程中我们常常需要对对象进行排序，而排序又必须根据对象的实际类型进行比较。Java中提供了两个比较器接口用于对象之间的比较，分别是java.lang包中的Comparable接口和java.util包中Comparator接口。下面分别对这两种使用方法进行简单介绍。<br>第一种java.lang.Comparable接口，只需要实现compareTo()一个方法就可以实现比较功能，并且调用系统排序函数查看效果。代码如下：</p>
 <figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Java</span></div><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Children</span> <span class="keyword"><span class="keyword">implements</span> <span class="type">Comparable</span></span>&lt;<span class="title">Children</span>&gt;</span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">String</span> name;</div><div class="line">    <span class="keyword">private</span> int age;</div><div class="line">    <span class="keyword">public</span> Children(<span class="keyword">String</span> name,int age)&#123;</div><div class="line">        <span class="built_in">this</span>.name=name;</div><div class="line">        <span class="built_in">this</span>.age=age;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">String</span> toString()&#123;<span class="comment">//重载toString()方法</span></div><div class="line">        <span class="keyword">return</span> name+<span class="string">"******"</span>+age;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    <span class="keyword">public</span> int compareTo(Children c) &#123;</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.age&gt;=c.age)</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> void main(<span class="keyword">String</span> []args)&#123;</div><div class="line">        Children[] childrens=&#123;<span class="keyword">new</span> <span class="type">Children</span>(<span class="string">"Helen"</span>,<span class="number">8</span>),</div><div class="line">                              <span class="keyword">new</span> <span class="type">Children</span>(<span class="string">"David"</span>,<span class="number">12</span>),</div><div class="line">                              <span class="keyword">new</span> <span class="type">Children</span>(<span class="string">"Andrew"</span>,<span class="number">10</span>),</div><div class="line">                              <span class="keyword">new</span> <span class="type">Children</span>(<span class="string">"Angela"</span>,<span class="number">7</span>),</div><div class="line">                              <span class="keyword">new</span> <span class="type">Children</span>(<span class="string">"Joe"</span>,<span class="number">9</span>)&#125;;</div><div class="line">        Arrays.sort(childrens);</div><div class="line">        <span class="keyword">for</span>(Children ch: <span class="type">childrens</span>)&#123;</div><div class="line">            System.out.println(ch);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/* 输出结果</span></div><div class="line">*Angela******7</div><div class="line">*Helen******8</div><div class="line">*Joe******9</div><div class="line">*Andrew******10</div><div class="line">*David******12</div><div class="line">*/</div></pre></td></tr></table></figure>
 <p>采用这种方法，我们需要让比较的对象类实现这个接口，并且必须要重载int compareTo(Object o)方法，接受一个需要比较的同类型的对象，如果该对象小于参数返回负值，除此之外返回正值，这时排序以增序排列，反之则以降序排列。<br>第二种import java.util.Comparator接口，该接口有多个方法，但是如果是完成最简单的比较和排序的话，仅仅实现int compare(T o1, T o2)方法即可。代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Java</span></div><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"><span class="keyword">import</span> java.util.Comparator;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.name=name;</div><div class="line">        <span class="keyword">this</span>.age=age;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> age;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> name+<span class="string">"******"</span>+age;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">CompareStudents</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Student</span>&gt;</span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Student o1, Student o2)</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span> (o1.getAge()&gt;=o2.getAge())</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">            <span class="keyword">else</span></div><div class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</div><div class="line">        Student[] students=&#123;<span class="keyword">new</span> Student(<span class="string">"Helen"</span>,<span class="number">8</span>),</div><div class="line">                <span class="keyword">new</span> Student(<span class="string">"David"</span>,<span class="number">12</span>),</div><div class="line">                <span class="keyword">new</span> Student(<span class="string">"Andrew"</span>,<span class="number">10</span>),</div><div class="line">                <span class="keyword">new</span> Student(<span class="string">"Angela"</span>,<span class="number">7</span>),</div><div class="line">                <span class="keyword">new</span> Student(<span class="string">"Joe"</span>,<span class="number">9</span>)&#125;;</div><div class="line">        Arrays.sort(students,<span class="keyword">new</span> CompareStudents());</div><div class="line">        <span class="keyword">for</span>(Student stu: students)&#123;</div><div class="line">            System.out.println(stu);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/* 输出结果</span></div><div class="line">*Angela******7</div><div class="line">*Helen******8</div><div class="line">*Joe******9</div><div class="line">*Andrew******10</div><div class="line">*David******12</div><div class="line">*/</div></pre></td></tr></table></figure></p>
 <p>用这种方法，需要为比较的对象单独创建一个实现了Comparator接口的类，可以发现int compare(T o1, T o2)需要传入两个参数并且排序比较的规则与之前也是类似的。两种方法最后得到了完全一样的结果，但是Comparator接口还有很多其他方法，尤其是JDK1.8之后才添加的新的方法，所以会有更强大的功能。所以如果是仅仅实现基本的对象比较的话采用第一种就可以了，但是如果有更多需求的话，则需要采用第二种方法。<br>Tips:至于为什么需要重写toString()方法，是因为在System.out.println()中输出的如果是对象，则会默认调用其toString()方法，而所有的默认方法都是输出其对象名和地址。</p>
@@ -193,6 +180,17 @@
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/编程/" class="article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -258,7 +256,7 @@
   
   
     <a href="/2017/05/11/Hello-world-0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello world</div>
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
