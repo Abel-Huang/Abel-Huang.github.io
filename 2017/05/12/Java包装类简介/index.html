@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://abelib.cn">
-  <title>Tag: js | Abel Huang的博客</title>
+  <title>Java包装类简介 | Abel Huang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="江南大学计算机系13级，现就职于七牛云。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Abel Huang的博客">
-<meta property="og:url" content="http://abelib.cn/tags/js/index.html">
+  <meta name="description" content="Java是一种强类型语言，一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用，因此必须为每一个变量声明一种类型。在Java中，一共有8种基本数据类型，其中有四种整型（int，short，long，byte）、两种浮点类型（float，double）、1种用于表示Unicode编码的字符单元的字符类型char和一种用于表示真值（布尔值）的boolean类型。但在实际">
+<meta name="keywords" content="Java,面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java包装类简介">
+<meta property="og:url" content="http://abelib.cn/2017/05/12/Java包装类简介/index.html">
 <meta property="og:site_name" content="Abel Huang的博客">
-<meta property="og:description" content="江南大学计算机系13级，现就职于七牛云。">
+<meta property="og:description" content="Java是一种强类型语言，一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用，因此必须为每一个变量声明一种类型。在Java中，一共有8种基本数据类型，其中有四种整型（int，short，long，byte）、两种浮点类型（float，double）、1种用于表示Unicode编码的字符单元的字符类型char和一种用于表示真值（布尔值）的boolean类型。但在实际">
+<meta property="og:updated_time" content="2017-05-11T20:29:18.479Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Abel Huang的博客">
-<meta name="twitter:description" content="江南大学计算机系13级，现就职于七牛云。">
+<meta name="twitter:title" content="Java包装类简介">
+<meta name="twitter:description" content="Java是一种强类型语言，一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用，因此必须为每一个变量声明一种类型。在Java中，一共有8种基本数据类型，其中有四种整型（int，short，long，byte）、两种浮点类型（float，double）、1种用于表示Unicode编码的字符单元的字符类型char和一种用于表示真值（布尔值）的boolean类型。但在实际">
   
     <link rel="alternative" href="/atom.xml" title="Abel Huang的博客" type="application/atom+xml">
   
@@ -138,68 +140,185 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java包装类简介" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/12/myFirstPageForTag/" class="archive-article-date">
-  	<time datetime="2017-05-11T20:01:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/12/myFirstPageForTag/">myFirstPageForTag</a>
+    <h1 class="article-title" itemprop="name">
+      Java包装类简介
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/05/12/Java包装类简介/" class="archive-article-date">
+  	<time datetime="2017-05-11T20:14:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Java是一种强类型语言，一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用，因此必须为每一个变量声明一种类型。在Java中，一共有8种基本数据类型，其中有四种整型（int，short，long，byte）、两种浮点类型（float，double）、1种用于表示Unicode编码的字符单元的字符类型char和一种用于表示真值（布尔值）的boolean类型。但在实际使用中我们常常需要将int型这样的基本数据类型，转换成对象。例如在使用泛型程序设计时，我们需要指定一个类型参数用来指示元素的类型，但是这个类型参数必须使用引用类型（至于原因会在文章最后指出），即基本类型对应的对象。<br>    <code>List&lt;Integer&gt; list=new ArrayList&lt;&gt;();</code><br>    这时我们就需要将基本数据类型转换为对应的对象包装器，每一个基本类型都有一个与之对应的类，这个类被称为包装器。对应关系如下：</p>
+<ol>
+<li>int       :         Integer</li>
+<li>long    :        Long</li>
+<li>float       :      Float</li>
+<li>double    :     Double</li>
+<li>short       :     Short</li>
+<li>byte        :      Byte</li>
+<li>char        :      Character</li>
+<li>boolean   :     Boolean</li>
+<li>void       :       Void<br>比如我们可以这样使用。<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">int a</span>=123;</div><div class="line"><span class="attribute">Integer b</span>=new Integer(123);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>从Java SE5开始自动包装功能能自动地将基本类型转换为包装器类型，并且可以反向转换。</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">Integer a</span> =123;</div><div class="line"><span class="attribute">int b</span>=a;</div></pre></td></tr></table></figure>
+<p>而在这之前，我们需要对此进行显示的转换，否则编译器就会报错。<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">Integer a</span>=123;</div><div class="line"><span class="attribute">int b</span>=a.intValue();</div></pre></td></tr></table></figure></p>
+<p>至于为什么需要包装类，主要原因有两个：</p>
+<ol>
+<li>便于类型转换，防止类型强转时发生异常和错误。</li>
+<li>在某些需要传入Object类型的参数时，需要传入基本类型对应的包装类型。<br>因为Java是一个完全面向对象的语言，但唯一的例外可能就是基本类型了，因为对象是存放在堆中的，但是基本数据类型是创建一个并非是引用的“自动”变量。这个变量直接存储”值”，并置于堆栈中，因此更高效。可见，包装类其实比基本数据类型是更加面向对象的。</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面向对象</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/编程/" class="article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://abelib.cn/2017/05/12/Java包装类简介/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/05/12/myFirstPageForTag/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">myFirstPageForTag</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -222,9 +341,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://abelib.cn">
-  <title>Tag: js | Abel Huang的博客</title>
+  <title>如何用Java写一个交换函数 | Abel Huang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="江南大学计算机系13级，现就职于七牛云。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Abel Huang的博客">
-<meta property="og:url" content="http://abelib.cn/tags/js/index.html">
+  <meta name="description" content="最近在写Java时突然遇到一个问题，就是怎样在Java中写一个函数，实现两个数的交换，这个问题在学习C或者C++的时候我们常用来描述值传递和地址传递的区别，例如在C++中这个函数可以这样写：12345//cppvoid swap(int &amp;amp;a,int &amp;amp;b)&amp;#123;	 int temp=a;	 a=b;	 b=temp;&amp;#125; C语言可以用指针进行地址传递实现同样的功能。">
+<meta name="keywords" content="Java,C ++,C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何用Java写一个交换函数">
+<meta property="og:url" content="http://abelib.cn/2017/05/12/如何用Java写一个交换函数/index.html">
 <meta property="og:site_name" content="Abel Huang的博客">
-<meta property="og:description" content="江南大学计算机系13级，现就职于七牛云。">
+<meta property="og:description" content="最近在写Java时突然遇到一个问题，就是怎样在Java中写一个函数，实现两个数的交换，这个问题在学习C或者C++的时候我们常用来描述值传递和地址传递的区别，例如在C++中这个函数可以这样写：12345//cppvoid swap(int &amp;amp;a,int &amp;amp;b)&amp;#123;	 int temp=a;	 a=b;	 b=temp;&amp;#125; C语言可以用指针进行地址传递实现同样的功能。">
+<meta property="og:updated_time" content="2017-05-11T20:28:55.066Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Abel Huang的博客">
-<meta name="twitter:description" content="江南大学计算机系13级，现就职于七牛云。">
+<meta name="twitter:title" content="如何用Java写一个交换函数">
+<meta name="twitter:description" content="最近在写Java时突然遇到一个问题，就是怎样在Java中写一个函数，实现两个数的交换，这个问题在学习C或者C++的时候我们常用来描述值传递和地址传递的区别，例如在C++中这个函数可以这样写：12345//cppvoid swap(int &amp;amp;a,int &amp;amp;b)&amp;#123;	 int temp=a;	 a=b;	 b=temp;&amp;#125; C语言可以用指针进行地址传递实现同样的功能。">
   
     <link rel="alternative" href="/atom.xml" title="Abel Huang的博客" type="application/atom+xml">
   
@@ -138,68 +140,184 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-如何用Java写一个交换函数" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/12/myFirstPageForTag/" class="archive-article-date">
-  	<time datetime="2017-05-11T20:01:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/12/myFirstPageForTag/">myFirstPageForTag</a>
+    <h1 class="article-title" itemprop="name">
+      如何用Java写一个交换函数
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/05/12/如何用Java写一个交换函数/" class="archive-article-date">
+  	<time datetime="2017-05-11T20:01:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在写Java时突然遇到一个问题，就是怎样在Java中写一个函数，实现两个数的交换，这个问题在学习C或者C++的时候我们常用来描述值传递和地址传递的区别，例如在C++中这个函数可以这样写：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//cpp</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span>&#123;</div><div class="line">	 <span class="keyword">int</span> temp=a;</div><div class="line">	 a=b;</div><div class="line">	 b=temp;&#125;</div></pre></td></tr></table></figure></p>
+<p>C语言可以用指针进行地址传递实现同样的功能。但是Java中并没有指针，而且引用也不能直接操作基本数据类型。难道可以直接写成这样么？</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Java</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">	 <span class="keyword">int</span> temp=a;</div><div class="line">	 a=b;</div><div class="line">	 b=temp;&#125;</div></pre></td></tr></table></figure>
+<p>答案是显而易见的，这个swap函数和C/C++的值传递一样，并不能实现交换的效果。通过在网上找资料，我发现了一种比较巧妙的方法来实现这个问题。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Java</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> [] a)</span></span>&#123;</div><div class="line">	 <span class="keyword">int</span> temp=a[<span class="number">0</span>];</div><div class="line">	 a[<span class="number">0</span>]=a[<span class="number">1</span>];</div><div class="line">	 a[<span class="number">1</span>]=temp;&#125;</div></pre></td></tr></table></figure>
+<p>在调用时，需要新建一个长度为2的数组，将需要交换的两个放到数组里面去，并将数组作为参数 , 例如将a=1,b=2进行交换：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Java</span></div><div class="line">int a=<span class="number">1</span>;</div><div class="line">int b=<span class="number">2</span>;</div><div class="line">int arraySwap[]=new int[<span class="number">2</span>];</div><div class="line">arraySwap[<span class="number">0</span>]=a;</div><div class="line">arraySwap[<span class="number">1</span>]=b;</div><div class="line">swap(arraySwap);</div><div class="line">a=arraySwap[<span class="number">0</span>];</div><div class="line">b=arraySwap[<span class="number">1</span>];</div><div class="line"><span class="comment">//运算的结果：a=2,b=1</span></div></pre></td></tr></table></figure></p>
+<p>通过数组的方式只是其中一种方法，还可以通过成员变量的方式来实现。虽然这是一个很简单的问题，但是却很容易被忽视，我自己还真的没有想到。这里面也有一个小小的问题，虽然在Java可以实现和C/C++同样效果的交换函数，但是代码却复杂了很多，这样反而没有单独将其写成一个函数的必要了，虽然逻辑上清晰了很多。尽管Java取消了指针，但是有时候也会给我们的编程带来一些小小的麻烦吧。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">C ++</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/编程/" class="article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://abelib.cn/2017/05/12/如何用Java写一个交换函数/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/05/12/myFirstPageForTag/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          myFirstPageForTag
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/05/12/Java比较器的使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java比较器的使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -222,9 +340,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
