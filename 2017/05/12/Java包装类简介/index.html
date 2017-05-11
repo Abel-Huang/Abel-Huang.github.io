@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://abelib.cn/2017/05/12/Java包装类简介/index.html">
 <meta property="og:site_name" content="Abel Huang的博客">
 <meta property="og:description" content="Java是一种强类型语言，一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用，因此必须为每一个变量声明一种类型。在Java中，一共有8种基本数据类型，其中有四种整型（int，short，long，byte）、两种浮点类型（float，double）、1种用于表示Unicode编码的字符单元的字符类型char和一种用于表示真值（布尔值）的boolean类型。但在实际">
-<meta property="og:updated_time" content="2017-05-11T20:59:51.771Z">
+<meta property="og:updated_time" content="2017-05-11T21:21:51.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java包装类简介">
 <meta name="twitter:description" content="Java是一种强类型语言，一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用，因此必须为每一个变量声明一种类型。在Java中，一共有8种基本数据类型，其中有四种整型（int，short，long，byte）、两种浮点类型（float，double）、1种用于表示Unicode编码的字符单元的字符类型char和一种用于表示真值（布尔值）的boolean类型。但在实际">
@@ -160,9 +160,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Java是一种强类型语言，一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用，因此必须为每一个变量声明一种类型。在Java中，一共有8种基本数据类型，其中有四种整型（int，short，long，byte）、两种浮点类型（float，double）、1种用于表示Unicode编码的字符单元的字符类型char和一种用于表示真值（布尔值）的boolean类型。但在实际使用中我们常常需要将int型这样的基本数据类型，转换成对象。例如在使用泛型程序设计时，我们需要指定一个类型参数用来指示元素的类型，但是这个类型参数必须使用引用类型（至于原因会在文章最后指出），即基本类型对应的对象。<br> <figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Java</span></div><div class="line"><span class="built_in">List</span>&lt;<span class="built_in">Integer</span>&gt; <span class="built_in">list</span>=<span class="literal">new</span> ArrayList&lt;&gt;();</div></pre></td></tr></table></figure></p>
-<pre><code>这时我们就需要将基本数据类型转换为对应的对象包装器，每一个基本类型都有一个与之对应的类，这个类被称为包装器。对应关系如下：
-</code></pre><ol>
+        <p>Java是一种强类型语言，一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用，因此必须为每一个变量声明一种类型。在Java中，一共有8种基本数据类型，其中有四种整型（int，short，long，byte）、两种浮点类型（float，double）、1种用于表示Unicode编码的字符单元的字符类型char和一种用于表示真值（布尔值）的boolean类型。但在实际使用中我们常常需要将int型这样的基本数据类型，转换成对象。例如在使用泛型程序设计时，我们需要指定一个类型参数用来指示元素的类型，但是这个类型参数必须使用引用类型（至于原因会在文章最后指出），即基本类型对应的对象。<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List&lt;Integer&gt; list=<span class="keyword">new</span> ArrayList&lt;&gt;();</div></pre></td></tr></table></figure></p>
+<p>这时我们就需要将基本数据类型转换为对应的对象包装器，每一个基本类型都有一个与之对应的类，这个类被称为包装器。对应关系如下：</p>
+<ol>
 <li>int       :         Integer</li>
 <li>long    :        Long</li>
 <li>float       :      Float</li>
@@ -171,12 +171,11 @@
 <li>byte        :      Byte</li>
 <li>char        :      Character</li>
 <li>boolean   :     Boolean</li>
-<li>void       :       Void<br>比如我们可以这样使用。<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">int a</span>=123;</div><div class="line"><span class="attribute">Integer b</span>=new Integer(123);</div></pre></td></tr></table></figure>
+<li>void       :       Void<br>比如我们可以这样使用。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a=<span class="number">123</span>;</div><div class="line">Integer b=<span class="keyword">new</span> Integer(<span class="number">123</span>);</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>从Java SE5开始自动包装功能能自动地将基本类型转换为包装器类型，并且可以反向转换。</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">Integer a</span> =123;</div><div class="line"><span class="attribute">int b</span>=a;</div></pre></td></tr></table></figure>
-<p>而在这之前，我们需要对此进行显示的转换，否则编译器就会报错。<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">Integer a</span>=123;</div><div class="line"><span class="attribute">int b</span>=a.intValue();</div></pre></td></tr></table></figure></p>
+<p>从Java SE5开始自动包装功能能自动地将基本类型转换为包装器类型，并且可以反向转换。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Integer a =<span class="number">123</span>;</div><div class="line"><span class="keyword">int</span> b=a;</div></pre></td></tr></table></figure></p>
+<p>而在这之前，我们需要对此进行显示的转换，否则编译器就会报错。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Integer a=<span class="number">123</span>;</div><div class="line"><span class="keyword">int</span> b=a.intValue();</div></pre></td></tr></table></figure></p>
 <p>至于为什么需要包装类，主要原因有两个：</p>
 <ol>
 <li>便于类型转换，防止类型强转时发生异常和错误。</li>
@@ -411,11 +410,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -427,7 +426,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
               </li>
             
             <div class="clearfix"></div>

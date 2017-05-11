@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://abelib.cn">
   <title>如何用Java写一个交换函数 | Abel Huang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在写Java时突然遇到一个问题，就是怎样在Java中写一个函数，实现两个数的交换，这个问题在学习C或者C++的时候我们常用来描述值传递和地址传递的区别，例如在C++中这个函数可以这样写：12345//cppvoid swap(int &amp;amp;a,int &amp;amp;b)&amp;#123;	 int temp=a;	 a=b;	 b=temp;&amp;#125; C语言可以用指针进行地址传递实现同样的功能。">
+  <meta name="description" content="最近在写Java时突然遇到一个问题，就是怎样在Java中写一个函数，实现两个数的交换，这个问题在学习C或者C++的时候我们常用来描述值传递和地址传递的区别，例如在C++中这个函数可以这样写：1234void swap(int &amp;amp;a,int &amp;amp;b)&amp;#123;	 int temp=a;	 a=b;	 b=temp;&amp;#125; C语言可以用指针进行地址传递实现同样的功能。但是Java">
 <meta name="keywords" content="Java,C ++,C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何用Java写一个交换函数">
 <meta property="og:url" content="http://abelib.cn/2017/05/12/如何用Java写一个交换函数/index.html">
 <meta property="og:site_name" content="Abel Huang的博客">
-<meta property="og:description" content="最近在写Java时突然遇到一个问题，就是怎样在Java中写一个函数，实现两个数的交换，这个问题在学习C或者C++的时候我们常用来描述值传递和地址传递的区别，例如在C++中这个函数可以这样写：12345//cppvoid swap(int &amp;amp;a,int &amp;amp;b)&amp;#123;	 int temp=a;	 a=b;	 b=temp;&amp;#125; C语言可以用指针进行地址传递实现同样的功能。">
-<meta property="og:updated_time" content="2017-05-11T20:36:34.394Z">
+<meta property="og:description" content="最近在写Java时突然遇到一个问题，就是怎样在Java中写一个函数，实现两个数的交换，这个问题在学习C或者C++的时候我们常用来描述值传递和地址传递的区别，例如在C++中这个函数可以这样写：1234void swap(int &amp;amp;a,int &amp;amp;b)&amp;#123;	 int temp=a;	 a=b;	 b=temp;&amp;#125; C语言可以用指针进行地址传递实现同样的功能。但是Java">
+<meta property="og:updated_time" content="2017-05-11T21:21:49.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何用Java写一个交换函数">
-<meta name="twitter:description" content="最近在写Java时突然遇到一个问题，就是怎样在Java中写一个函数，实现两个数的交换，这个问题在学习C或者C++的时候我们常用来描述值传递和地址传递的区别，例如在C++中这个函数可以这样写：12345//cppvoid swap(int &amp;amp;a,int &amp;amp;b)&amp;#123;	 int temp=a;	 a=b;	 b=temp;&amp;#125; C语言可以用指针进行地址传递实现同样的功能。">
+<meta name="twitter:description" content="最近在写Java时突然遇到一个问题，就是怎样在Java中写一个函数，实现两个数的交换，这个问题在学习C或者C++的时候我们常用来描述值传递和地址传递的区别，例如在C++中这个函数可以这样写：1234void swap(int &amp;amp;a,int &amp;amp;b)&amp;#123;	 int temp=a;	 a=b;	 b=temp;&amp;#125; C语言可以用指针进行地址传递实现同样的功能。但是Java">
   
     <link rel="alternative" href="/atom.xml" title="Abel Huang的博客" type="application/atom+xml">
   
@@ -160,12 +160,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在写Java时突然遇到一个问题，就是怎样在Java中写一个函数，实现两个数的交换，这个问题在学习C或者C++的时候我们常用来描述值传递和地址传递的区别，例如在C++中这个函数可以这样写：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//cpp</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span>&#123;</div><div class="line">	 <span class="keyword">int</span> temp=a;</div><div class="line">	 a=b;</div><div class="line">	 b=temp;&#125;</div></pre></td></tr></table></figure></p>
-<p>C语言可以用指针进行地址传递实现同样的功能。但是Java中并没有指针，而且引用也不能直接操作基本数据类型。难道可以直接写成这样么？</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Java</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">	 <span class="keyword">int</span> temp=a;</div><div class="line">	 a=b;</div><div class="line">	 b=temp;&#125;</div></pre></td></tr></table></figure>
-<p>答案是显而易见的，这个swap函数和C/C++的值传递一样，并不能实现交换的效果。通过在网上找资料，我发现了一种比较巧妙的方法来实现这个问题。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Java</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> [] a)</span></span>&#123;</div><div class="line">	 <span class="keyword">int</span> temp=a[<span class="number">0</span>];</div><div class="line">	 a[<span class="number">0</span>]=a[<span class="number">1</span>];</div><div class="line">	 a[<span class="number">1</span>]=temp;&#125;</div></pre></td></tr></table></figure>
-<p>在调用时，需要新建一个长度为2的数组，将需要交换的两个放到数组里面去，并将数组作为参数 , 例如将a=1,b=2进行交换：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Java</span></div><div class="line">int a=<span class="number">1</span>;</div><div class="line">int b=<span class="number">2</span>;</div><div class="line">int arraySwap[]=new int[<span class="number">2</span>];</div><div class="line">arraySwap[<span class="number">0</span>]=a;</div><div class="line">arraySwap[<span class="number">1</span>]=b;</div><div class="line">swap(arraySwap);</div><div class="line">a=arraySwap[<span class="number">0</span>];</div><div class="line">b=arraySwap[<span class="number">1</span>];</div><div class="line"><span class="comment">//运算的结果：a=2,b=1</span></div></pre></td></tr></table></figure></p>
+        <p>最近在写Java时突然遇到一个问题，就是怎样在Java中写一个函数，实现两个数的交换，这个问题在学习C或者C++的时候我们常用来描述值传递和地址传递的区别，例如在C++中这个函数可以这样写：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span>&#123;</div><div class="line">	 <span class="keyword">int</span> temp=a;</div><div class="line">	 a=b;</div><div class="line">	 b=temp;&#125;</div></pre></td></tr></table></figure></p>
+<p>C语言可以用指针进行地址传递实现同样的功能。但是Java中并没有指针，而且引用也不能直接操作基本数据类型。难道可以直接写成这样么？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">	 <span class="keyword">int</span> temp=a;</div><div class="line">	 a=b;</div><div class="line">	 b=temp;&#125;</div></pre></td></tr></table></figure></p>
+<p>答案是显而易见的，这个swap函数和C/C++的值传递一样，并不能实现交换的效果。通过在网上找资料，我发现了一种比较巧妙的方法来实现这个问题。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> [] a)</span></span>&#123;</div><div class="line">	 <span class="keyword">int</span> temp=a[<span class="number">0</span>];</div><div class="line">	 a[<span class="number">0</span>]=a[<span class="number">1</span>];</div><div class="line">	 a[<span class="number">1</span>]=temp;&#125;</div></pre></td></tr></table></figure></p>
+<p>在调用时，需要新建一个长度为2的数组，将需要交换的两个放到数组里面去，并将数组作为参数 , 例如将a=1,b=2进行交换：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a=<span class="number">1</span>;</div><div class="line"><span class="keyword">int</span> b=<span class="number">2</span>;</div><div class="line"><span class="keyword">int</span> arraySwap[]=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">arraySwap[<span class="number">0</span>]=a;</div><div class="line">arraySwap[<span class="number">1</span>]=b;</div><div class="line">swap(arraySwap);</div><div class="line">a=arraySwap[<span class="number">0</span>];</div><div class="line">b=arraySwap[<span class="number">1</span>];</div><div class="line"><span class="comment">//运算的结果：a=2,b=1</span></div></pre></td></tr></table></figure></p>
 <p>通过数组的方式只是其中一种方法，还可以通过成员变量的方式来实现。虽然这是一个很简单的问题，但是却很容易被忽视，我自己还真的没有想到。这里面也有一个小小的问题，虽然在Java可以实现和C/C++同样效果的交换函数，但是代码却复杂了很多，这样反而没有单独将其写成一个函数的必要了，虽然逻辑上清晰了很多。尽管Java取消了指针，但是有时候也会给我们的编程带来一些小小的麻烦吧。</p>
 
       
@@ -409,11 +407,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -425,7 +423,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">面向对象</a>
               </li>
             
             <div class="clearfix"></div>
