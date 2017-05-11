@@ -160,7 +160,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Java是一种强类型语言，一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用，因此必须为每一个变量声明一种类型。在Java中，一共有8种基本数据类型，其中有四种整型（int，short，long，byte）、两种浮点类型（float，double）、1种用于表示Unicode编码的字符单元的字符类型char和一种用于表示真值（布尔值）的boolean类型。但在实际使用中我们常常需要将int型这样的基本数据类型，转换成对象。例如在使用泛型程序设计时，我们需要指定一个类型参数用来指示元素的类型，但是这个类型参数必须使用引用类型（至于原因会在文章最后指出），即基本类型对应的对象。<br> <figure class="highlight plain"><figcaption><span>list=new ArrayList<>();</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"> </div></pre></td></tr></table></figure></p>
+        <p>Java是一种强类型语言，一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用，因此必须为每一个变量声明一种类型。在Java中，一共有8种基本数据类型，其中有四种整型（int，short，long，byte）、两种浮点类型（float，double）、1种用于表示Unicode编码的字符单元的字符类型char和一种用于表示真值（布尔值）的boolean类型。但在实际使用中我们常常需要将int型这样的基本数据类型，转换成对象。例如在使用泛型程序设计时，我们需要指定一个类型参数用来指示元素的类型，但是这个类型参数必须使用引用类型（至于原因会在文章最后指出），即基本类型对应的对象。<br> <figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Java</span></div><div class="line"><span class="built_in">List</span>&lt;<span class="built_in">Integer</span>&gt; <span class="built_in">list</span>=<span class="literal">new</span> ArrayList&lt;&gt;();</div></pre></td></tr></table></figure></p>
 <pre><code>这时我们就需要将基本数据类型转换为对应的对象包装器，每一个基本类型都有一个与之对应的类，这个类被称为包装器。对应关系如下：
 </code></pre><ol>
 <li>int       :         Integer</li>
