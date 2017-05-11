@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://abelib.cn/2017/05/12/Java包装类简介/index.html">
 <meta property="og:site_name" content="Abel Huang的博客">
 <meta property="og:description" content="Java是一种强类型语言，一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用，因此必须为每一个变量声明一种类型。在Java中，一共有8种基本数据类型，其中有四种整型（int，short，long，byte）、两种浮点类型（float，double）、1种用于表示Unicode编码的字符单元的字符类型char和一种用于表示真值（布尔值）的boolean类型。但在实际">
-<meta property="og:updated_time" content="2017-05-11T20:29:18.479Z">
+<meta property="og:updated_time" content="2017-05-11T20:36:33.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java包装类简介">
 <meta name="twitter:description" content="Java是一种强类型语言，一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用，因此必须为每一个变量声明一种类型。在Java中，一共有8种基本数据类型，其中有四种整型（int，short，long，byte）、两种浮点类型（float，double）、1种用于表示Unicode编码的字符单元的字符类型char和一种用于表示真值（布尔值）的boolean类型。但在实际">
@@ -160,8 +160,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Java是一种强类型语言，一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用，因此必须为每一个变量声明一种类型。在Java中，一共有8种基本数据类型，其中有四种整型（int，short，long，byte）、两种浮点类型（float，double）、1种用于表示Unicode编码的字符单元的字符类型char和一种用于表示真值（布尔值）的boolean类型。但在实际使用中我们常常需要将int型这样的基本数据类型，转换成对象。例如在使用泛型程序设计时，我们需要指定一个类型参数用来指示元素的类型，但是这个类型参数必须使用引用类型（至于原因会在文章最后指出），即基本类型对应的对象。<br>    <code>List&lt;Integer&gt; list=new ArrayList&lt;&gt;();</code><br>    这时我们就需要将基本数据类型转换为对应的对象包装器，每一个基本类型都有一个与之对应的类，这个类被称为包装器。对应关系如下：</p>
-<ol>
+        <p>Java是一种强类型语言，一种总是强制类型定义的语言，要求变量的使用要严格符合定义，所有变量都必须先定义后使用，因此必须为每一个变量声明一种类型。在Java中，一共有8种基本数据类型，其中有四种整型（int，short，long，byte）、两种浮点类型（float，double）、1种用于表示Unicode编码的字符单元的字符类型char和一种用于表示真值（布尔值）的boolean类型。但在实际使用中我们常常需要将int型这样的基本数据类型，转换成对象。例如在使用泛型程序设计时，我们需要指定一个类型参数用来指示元素的类型，但是这个类型参数必须使用引用类型（至于原因会在文章最后指出），即基本类型对应的对象。<br> <figure class="highlight plain"><figcaption><span>list=new ArrayList<>();</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"> </div></pre></td></tr></table></figure></p>
+<pre><code>这时我们就需要将基本数据类型转换为对应的对象包装器，每一个基本类型都有一个与之对应的类，这个类被称为包装器。对应关系如下：
+</code></pre><ol>
 <li>int       :         Integer</li>
 <li>long    :        Long</li>
 <li>float       :      Float</li>
@@ -410,19 +411,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tags</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">C ++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -431,6 +420,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">C ++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
             
             <div class="clearfix"></div>
