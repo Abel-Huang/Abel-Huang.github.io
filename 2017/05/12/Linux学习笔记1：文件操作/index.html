@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://abelib.cn/2017/05/12/Linux学习笔记1：文件操作/index.html">
 <meta property="og:site_name" content="Abel Huang的博客">
 <meta property="og:description" content="我在大四上学期的时候学习了一门Linux的课程，并且对Linux有了一点浅显的认识，但是除了完成最后的期末大作业，我和Linux基本上也没有发生什么交集了。三月底一个朋友内推我参加面试，面试官屡屡提到了Linux，虽然最终侥幸拿到了offer，但是我也意识到自己在Linux上面的薄弱。由于临近毕业，这也可能是最后的校园时光了，除了写论文做毕设也没有太多其他的事情，打算抽时间好好学习一下Linux。">
-<meta property="og:updated_time" content="2017-05-12T01:11:55.101Z">
+<meta property="og:updated_time" content="2017-05-12T20:47:22.510Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux学习笔记1：文件操作">
 <meta name="twitter:description" content="我在大四上学期的时候学习了一门Linux的课程，并且对Linux有了一点浅显的认识，但是除了完成最后的期末大作业，我和Linux基本上也没有发生什么交集了。三月底一个朋友内推我参加面试，面试官屡屡提到了Linux，虽然最终侥幸拿到了offer，但是我也意识到自己在Linux上面的薄弱。由于临近毕业，这也可能是最后的校园时光了，除了写论文做毕设也没有太多其他的事情，打算抽时间好好学习一下Linux。">
@@ -160,22 +160,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我在大四上学期的时候学习了一门Linux的课程，并且对Linux有了一点浅显的认识，但是除了完成最后的期末大作业，我和Linux基本上也没有发生什么交集了。<br>三月底一个朋友内推我参加面试，面试官屡屡提到了Linux，虽然最终侥幸拿到了offer，但是我也意识到自己在Linux上面的薄弱。由于临近毕业，这也可能是最后的校园时光了，除了写论文做毕设也没有太多其他的事情，打算抽时间好好学习一下Linux。</p>
-<ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ul>
-<ol>
-<li>1</li>
-<li>2</li>
-<li>2</li>
-</ol>
-<blockquote>
-<p> 测试一下引用</p>
-</blockquote>
-<p> 测试一下引用</p>
-<p> ！<a href="http://optdju2uh.bkt.clouddn.com/17-5-12/63005645-file_1494550208151_172f8.jpg" target="_blank" rel="external">hehe</a></p>
+        <p>我在大四上学期的时候学习了一门Linux的课程，并且对Linux有了一点浅显的认识，但是除了完成最后的期末大作业，我和Linux基本上也没有发生什么交集了。三月底一个朋友内推我参加面试，面试官屡屡提到了Linux，虽然最终侥幸拿到了offer，但是我也意识到自己在Linux上面的薄弱。由于临近毕业，这也可能是最后的校园时光了，除了写论文做毕设也没有太多其他的事情，打算抽时间好好学习一下Linux。最近在学习Linux的命令行和shell编程，需要记忆和掌握的知识点很多，所以把一些经常用到的知识点记下来，加深一下印象。<br>文件系统是Linux最重要的部分，甚至Linux就是基于文件的，文件操作是Linux使用中无法避免的。在Linux中文件操作的命令行主要有以下5类。<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">* </span>浏览文件</div><div class="line"><span class="bullet">* </span>文件和目录列表</div><div class="line"><span class="bullet">* </span>处理文件</div><div class="line"><span class="bullet">* </span>处理目录</div><div class="line"><span class="bullet">* </span>查看文件</div></pre></td></tr></table></figure></p>
+<h3 id="浏览文件"><a href="#浏览文件" class="headerlink" title="浏览文件"></a>浏览文件</h3><p>在Linux系统中，可以用cd切换路径，其基本格式如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span>  destination</div></pre></td></tr></table></figure></p>
+<p>cd命令可以接受一个参数表示要打开的文件目录，而路径又分成相对路径和绝对路径。绝对路径以<code>/</code>开头，指虚拟文件系统的根路径，例如访问usr目录下的bin文件夹，就可以使用如下的绝对路径：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span>  /usr/bin</div></pre></td></tr></table></figure></p>
+<p>而相对路径则是基于当前位置的目标文件路径，以目录名或者一个特殊字符开始。例如在home目录下，希望切换到Desktop目录下，使用相对目录会更加方便：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span>  Desktop</div></pre></td></tr></table></figure></p>
+<p>此外还有一些特殊用法：<br><code>cd</code> 不加参数，回到home目录下<br><code>cd  ~</code> 同上<br><code>cd ..</code>回到当前目录的父目录<br><code>cd .</code>回到当前目录<br><code>cd /</code>回到根目录<br>可以使用<code>pwd</code>获取当前目录所处的绝对路径。</p>
+<h3 id="文件和目录列表"><a href="#文件和目录列表" class="headerlink" title="文件和目录列表"></a>文件和目录列表</h3><p>在Linux系统中可以使用ls命令查看文件。需要注意的是ls是按列以字母表排序的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls</div></pre></td></tr></table></figure></p>
+<p>ls可以设置参数，例如：<br><code>ls -a</code> 查看隐藏文件<br><code>ls -l</code> 查看长文件，会显示文件的详细信息<br> ls还支持添加过滤器，用以过滤输出列表：<br> <code>ls -l a*</code> 查看以a开头的文件</p>
+<h3 id="处理文件"><a href="#处理文件" class="headerlink" title="处理文件"></a>处理文件</h3><h5 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch newfile</div></pre></td></tr></table></figure>
+<p>touch命令默认创建一个空文件</p>
+<h5 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp <span class="built_in">source</span> destination</div></pre></td></tr></table></figure>
+<p>如果目标文件不存在会新建一个和原文件内容相同的新文件，但是文件信息会变成全新的，如果目标文件已经存在则会覆盖原文件的内容。</p>
+<h5 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv file directory</div></pre></td></tr></table></figure>
+<p>将目标文件移动到指定目录下。</p>
+<h5 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm file</div></pre></td></tr></table></figure>
+<p>需要注意的是删除文件后无法恢复，所以要谨慎操作。</p>
+<h3 id="处理目录"><a href="#处理目录" class="headerlink" title="处理目录"></a>处理目录</h3><h5 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir directory</div></pre></td></tr></table></figure>
+<p>新建了一个空目录，如果需要创建多级目录则需要以下参数：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p directory/subdir</div></pre></td></tr></table></figure></p>
+<h5 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rmdir directory</div></pre></td></tr></table></figure>
+<p>但是rmdir只能用来删除空目录，如果目录不为空则不会删除该目录。对于还有大量文件的目录可以使用以下方法来删除：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rmdir -rf fulldir</div></pre></td></tr></table></figure></p>
+<p>使用-r和-f参数可以完全删除目录，并且不用担心报错。</p>
+<h3 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h3><h5 id="查看文件类型"><a href="#查看文件类型" class="headerlink" title="查看文件类型"></a>查看文件类型</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">file filename</div></pre></td></tr></table></figure>
+<p>使用file命令可以查看文件的类型，甚至可以分辨出是文件还是一个目录。</p>
+<h5 id="查看文件内容-1"><a href="#查看文件内容-1" class="headerlink" title="查看文件内容"></a>查看文件内容</h5><p><strong>cat命令</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat filename</div></pre></td></tr></table></figure></p>
+<p>会将文件里面所有内容进行展示。<br><strong>more命令</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">more filename</div></pre></td></tr></table></figure></p>
+<p>与cat不同more每次只会显示一页内容，可以使用space或者enter继续浏览，或者使用q退出，more只支持基本的文件移动。<br><strong>less命令</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">less filename</div></pre></td></tr></table></figure></p>
+<p>less是比more更高级的的命令，与more相比提供了更多的操作。<br><strong>tail和head命令</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tail filename</div></pre></td></tr></table></figure></p>
+<p>会显示文件最后几行的内容，默认是10行，也可以自己定义：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tail   -8 filename</div></pre></td></tr></table></figure></p>
+<p>显示最后8行内容。head和tail的用法基本类似，这里就不再赘述了。</p>
 
       
 
